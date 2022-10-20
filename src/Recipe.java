@@ -29,9 +29,12 @@ public class Recipe {
 
     @Override
     public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
         Recipe recipe = (Recipe) o;
         return recipe.getNameRecipe().equals(this.getNameRecipe());
     }
+
+
 
     @Override
     public int hashCode() {

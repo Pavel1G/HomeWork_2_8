@@ -14,22 +14,16 @@ public class Passport {
         setBirthData(birthData);
     }
 
-    public Passport(String secondName, String firstName, String thirdName, String birthData) {
-        this.id = getId();
-        this.secondName = secondName;
-        this.firstName = firstName;
-        this.thirdName = thirdName;
-        this.birthData = birthData;
-    }
 
-    public Passport(String secondName, String firstName, String birthData) {
+    public Passport(String id, String secondName, String firstName, String birthData) {
+        this.id = id;
         this.secondName = secondName;
         this.firstName = firstName;
         this.birthData = birthData;
     }
 
     public void setSecondName(String secondName) throws Exception {
-        if (secondName != null && secondName.isBlank()) {
+        if (secondName != null || secondName.isBlank()) {
             this.secondName = secondName;
         } else {
             throw new Exception("Нельзя выдать паспорт. Укажите фамилию!");
@@ -37,7 +31,7 @@ public class Passport {
     }
 
     public void setFirstName(String firstName) throws Exception {
-        if (firstName != null && firstName.isBlank()) {
+        if (firstName != null || firstName.isBlank()) {
             this.firstName = firstName;
         } else {
             throw new Exception("Нельзя выдать паспорт. Укажите имя!");
@@ -49,7 +43,7 @@ public class Passport {
     }
 
     public void setBirthData(String birthData) throws Exception {
-        if (birthData != null && birthData.isBlank()) {
+        if (birthData != null || birthData.isBlank()) {
             this.birthData = birthData;
         } else {
             throw new Exception("Нельзя выдать паспорт. Укажите дату рождения!");

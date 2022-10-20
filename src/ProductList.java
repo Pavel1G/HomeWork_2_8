@@ -1,11 +1,13 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class ProductList {
-    private List<Product> productsBucket = new ArrayList<>();
+    private Set<Product> productsBucket = new HashSet<>();
 
     public void addProduct(Product product) throws WrongFillingProductBucketException {
-        if (checkProduct(product) != 0) {
+        if (productsBucket.contains(product)) {
             throw new WrongFillingProductBucketException("Такой товар уже есть в корзине!");
         } else {
             productsBucket.add(product);
@@ -13,21 +15,19 @@ public class ProductList {
     }
 
     public void removeProduct(Product product) {
-        if (checkProduct(product) != 0) {
-            productsBucket.remove(checkProduct(product));
-        }
+        productsBucket.remove(product);
     }
 
-    private int checkProduct(Product product) {
-        for (int i = 0; i < productsBucket.size(); i++) {
-            if (productsBucket.get(i).equals(product)) {
-                return i;
-            }
-        }
-        return 0;
-    }
+//    private Product checkProduct(Product product) {
+//        for (int i = 0; i < productsBucket.size(); i++) {
+//            if (productsBucket.contains(product)) {
+//                return product;
+//            }
+//        }
+//        return null;
+//    }
 
-    public List<Product> getProductsBucket() {
+    public Set<Product> getProductsBucket() {
         return productsBucket;
     }
 

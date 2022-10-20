@@ -3,10 +3,10 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws WrongDataFillingProductException,
             WrongFillingProductBucketException, Exception {
-        part1();
-        part2();
-        part3();
-        part4();
+//        part1();
+//        part2();
+//        part3();
+//        part4();
         part5();
     }
 
@@ -62,19 +62,27 @@ public class Main {
     public static void part3() {
         List<Integer> randomList = new ArrayList<>();
 
-        for (int i = 0; i < 19; i++) {
+        for (int i = 0; i < 20; i++) {
             int random = (int) (Math.random() * 1000);
             randomList.add(i, Integer.valueOf(random));
         }
         System.out.println("Объявлен массив: " + randomList);
 
-        for (int i = 0; i < randomList.size(); i++) {
-            if (randomList.get(i) % 2 != 0) {
-                randomList.remove(i);
+        Iterator<Integer> numbers = randomList.listIterator();
+        while (numbers.hasNext()) {
+            if (numbers.next() % 2 != 0) {
+                numbers.remove();
             }
         }
-        System.out.println("Массив после удаления нечетных чисел: " + randomList);
+
+//        Помогите, пожалуйста, вывести числа массива из итератора)
+//
+        System.out.print("Массив после удаления нечетных чисел: ");
+        while (numbers.hasNext()) {
+            System.out.print(numbers.next() + ", ");
+        }
     }
+
 
     public static void part4() {
         Set<Task> tasks = new HashSet<>(15);
@@ -88,13 +96,19 @@ public class Main {
         System.out.println(tasks);
     }
 
-    public static void part5() {
-        HashMap<String, Passport> pasports = new HashMap<>();
-        pasports.put("111", new Passport("Иванов", "Иван", "Иванович", "11.01.91"));
-        pasports.put("112", new Passport("Павлов", "Павел", "22.02.92"));
-        pasports.put("113", new Passport("Александров", "Александ", "30.03.93"));
+    public static void part5() throws Exception {
+        Passport ivan = new Passport("111", "Ivanov", "Иван", "Иванович", "11.01.91");
+        Passport pavel = new Passport("112", "Павлов", "Павел", "22.02.92");
+        Passport alexander = new Passport("113", "Александров", "Александр", "30.03.93");
+        Passport alice = new Passport("111", "Алисова", "Алиса", "04.04.94");
+
+        Map<String, Passport> pasports = new HashMap<>();
+        pasports.put(ivan.getId(), ivan);
+        pasports.put(pavel.getId(), pavel);
+        pasports.put(alexander.getId(), alexander);
         System.out.println(pasports);
-        pasports.put("111", new Passport("Алисова", "Алиса", "04.04.94"));
+
+        pasports.put(alice.getId(), alice);
         System.out.println(pasports);
 
         System.out.println(pasports.get("114"));
