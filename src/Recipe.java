@@ -1,10 +1,10 @@
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class Recipe {
     private String nameRecipe;
-    private Set<Product> products = new HashSet<>();
+
+//  Переписал с HashSet на HashMap. Урок 2.9.
+    private Map<Product, Integer> products = new HashMap<>();
     private int sumPriceOfRecipe = 0;
 
     public Recipe(String nameRecipe) {
@@ -12,13 +12,16 @@ public class Recipe {
     }
 
     public void addProductToRecipe(Product product) {
-        products.add(product);
+        if (product.getRequiredWeight() == 0) {
+            products.put(product, 1);
+        }
+        products.put(product, (int) Math.floor(product.getRequiredWeight()));
     }
 
     public int getSumPriceOfRecipe() {
         sumPriceOfRecipe = 0;
-        for (Product product : products) {
-            sumPriceOfRecipe += product.getPrice();
+        for (Map.Entry<Product, Integer> product : products.entrySet()) {
+            sumPriceOfRecipe += product.getKey().getPrice() * product.getValue();
         }
         return sumPriceOfRecipe;
     }
@@ -33,7 +36,6 @@ public class Recipe {
         Recipe recipe = (Recipe) o;
         return recipe.getNameRecipe().equals(this.getNameRecipe());
     }
-
 
 
     @Override

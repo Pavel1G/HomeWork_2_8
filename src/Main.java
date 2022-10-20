@@ -4,10 +4,10 @@ public class Main {
     public static void main(String[] args) throws WrongDataFillingProductException,
             WrongFillingProductBucketException, Exception {
 //        part1();
-//        part2();
+        part2();
 //        part3();
 //        part4();
-        part5();
+//        part5();
     }
 
     public static void part1() throws WrongDataFillingProductException,
@@ -31,11 +31,12 @@ public class Main {
     }
 
     public static void part2() throws Exception {
-        Product bread = new Product("Хлеб", 50, 0.5);
-        Product butter = new Product("Масло", 120, 0.2);
+//        Пришлось поменять поля Product для работы с мапами.
+        Product bread = new Product("Хлеб", 50, 1.3);
+        Product butter = new Product("Масло", 120, 2.2);
         Product sausage = new Product("Колбаса", 450, 1);
         Product milk = new Product("Молоко", 75, 0.9);
-        Product eggs = new Product("Яйца", 85, 0.4);
+        Product eggs = new Product("Яйца", 85, 4.4);
 
         Recipe sandwich = new Recipe("Бутерброд");
         sandwich.addProductToRecipe(bread);
