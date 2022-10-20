@@ -3,11 +3,11 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) throws WrongDataFillingProductException,
             WrongFillingProductBucketException, Exception {
-//        part1();
+        part1();
         part2();
-//        part3();
-//        part4();
-//        part5();
+        part3();
+        part4();
+        part5();
     }
 
     public static void part1() throws WrongDataFillingProductException,
