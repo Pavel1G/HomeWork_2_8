@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 public class ProductList {
-    private Set<Product> productsBucket = new HashSet<>();
+    private List<Product> productsBucket = new ArrayList<>();
 
     public void addProduct(Product product) throws WrongFillingProductBucketException {
         if (productsBucket.contains(product)) {
@@ -27,7 +27,7 @@ public class ProductList {
 //        return null;
 //    }
 
-    public Set<Product> getProductsBucket() {
+    public List<Product> getProductsBucket() {
         return productsBucket;
     }
 

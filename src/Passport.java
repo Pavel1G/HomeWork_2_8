@@ -15,11 +15,8 @@ public class Passport {
     }
 
 
-    public Passport(String id, String secondName, String firstName, String birthData) {
-        this.id = id;
-        this.secondName = secondName;
-        this.firstName = firstName;
-        this.birthData = birthData;
+    public Passport(String id, String secondName, String firstName, String birthData) throws Exception {
+        this(id, secondName, firstName, null, birthData);
     }
 
     public void setSecondName(String secondName) throws Exception {

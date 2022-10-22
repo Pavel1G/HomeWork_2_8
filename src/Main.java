@@ -18,10 +18,12 @@ public class Main {
         Product milk = new Product("Молоко", 75, 0.9);
 
         ProductList productsBucket = new ProductList();
+
         productsBucket.addProduct(bread);
         productsBucket.addProduct(butter);
         productsBucket.addProduct(sausage);
         productsBucket.addProduct(milk);
+//        productsBucket.addProduct(milk);
 
         System.out.println(productsBucket);
 
@@ -76,12 +78,7 @@ public class Main {
             }
         }
 
-//        Помогите, пожалуйста, вывести числа массива из итератора)
-//
-        System.out.print("Массив после удаления нечетных чисел: ");
-        while (numbers.hasNext()) {
-            System.out.print(numbers.next() + ", ");
-        }
+        System.out.print("Массив после удаления нечетных чисел: " + randomList);
     }
 
 
